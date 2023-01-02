@@ -1,0 +1,192 @@
+aws
+dlc3
+user: francisco.costa4287@gmail.com
+pass: Dev194_#
+
+
+dlc3.com.br
+==================
+
+
+
+
+===========wsl$\Ubuntu======
+\\wsl$\Ubuntu-20.04\home\dev\github\crachar
+
+
+
+===============
+https://www.youtube.com/watch?v=X76h_QPMww0   ::: 
+
+
+===========POSTGRES===
+Dentro do ambiente virtual, explicite a versão 3 do pip:
+pip3 install psycopg2
+Se você utiliza o Linux, adicione as dependências abaixo e após isso, tente executar o comando de instalação do psycopg2 novamente:
+sudo apt-get install libpq-dev python-dev
+===========Heroku======
+==============================
+
+https://eleicoes.poder360.com.br/?cargo=&ano=&uf=&municipio=&partido=&nome=alvaro dias
+
+heroku login
+
+pip install gunicorn
+pip freeze requirements.txt
+Procfile
+web:gunicorn app:app
+
+git init
+git add .
+git commit -m "Initial commmit"
+
+heroku create todo-codewithharry
+git remote -v
+git push heroku master
+
+
+
+===========Docker======
+https://hub.docker.com
+
+Docker Identification
+9907
+1@#_fcsite$#
+fcsitesw@gmail.com 1@#_fcsite$#
+
+
+Comandos Terminal
+segurança
+docker inspect apache_2:1.0
+docker history apache_2:1.0
+
+
+docker images
+
+docker tag fsx1jdx56fh 9907/webserver:1.0
+
+docker images | grep webserver
+
+docker login
+
+//carega a imagem pra o docker
+docker push 9907/webserver:1.0
+
+===========================
+
+*Ver todos as postas abertas no servidor  :: netstat -ln | grep 8080
+sudo nmap localhost
+
+*Publicando a porta na maquina PORTA 80
+curl localhost:8080       	    
+curl https://www.google.com/
+
+*Ver todos container ATIVOS/INATIVOS
+sudo docker container ls  	
+sudo docker container ls -a     
+
+*RODANDO - nginx
+sudo docker run --name=tulio -p 8080:80  nginx:latest
+
+*Alterando(Editando) dentro Container
+sudo docker exec -it tulio bash
+
+/usr/share/nginx/html# apt install vim
+>> oot@2813f61cfca1:/usr/share/nginx/html# ls
+ oot@2813f61cfca1:/usr/share/nginx/html# ls
+ 
+ 
+ 
+*Pagando(deletando) o Container  ??>> sudo docker rm $(docker ps -aq) -f <<?? Todos conatines
+dev@CMBI01:~/docker/fulCicle$ 
+sudo docker container rm -f 2813f61cfca1
+docker system prune --all
+ 
+*Compartilhando uma pasta no pc
+-d nao trava o terminal
+sudo docker run -d --name=web -p 8080:80   nginx:latest    ::::::/usr/share/nginx/html/  pasta do Nginx
+sudo docker run -d --name=web -v $(pwd)/html:/usr/share/nginx/html -p 8080:80  nginx:latest
+
+https://www.youtube.com/watch?v=U8e3kqrQrpY   1:00:41
+
+
+==================
+sudo docker login docker.io
+ sudo docker build -t 9907/full-francisco:latest .
+ sudo docker tag nginx:latest 9907/nginx:latest
+
+==================================================================================
+docker-compose.yml
+
+
+php:
+  image: php:7.4-apache
+  container_name: meu-php
+  ports:
+    - "8080:8080"
+    - "443:443"
+  volumes:
+    - /home/CMBI01/php/aplicativos:/var/www/html
+  links:
+    - db
+db:
+  image: mysql:latest
+  container_name: meu-mysql-php
+  ports:
+    - "3306:3306"
+  volumes:
+    - /var/lib/mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+
+
+-------------
+index.php
+
+
+<?php phpinfo(); ?>
+
+
+----------
+
+
+https://www.youtube.com/watch?v=axU9eEcwfDU
+
+Subir
+sudo docker-compose start
+Parar
+sudo docker-compose stop
+
+Destruir/Eliminar
+sudo docker-compose down
+
+Criar/Recriar
+sudo docker-compose up -d
+
+==============mysql==================bash
+
+mysql -u root  -p
+use nginx_francisco
+create table products (id varchar(222), name  varchar(155));
+desc products;
+
+
+=====================================Jupter
+https://www.youtube.com/watch?v=X76h_QPMww0   ::: 
+
+Image - docker 
+sudo docker run -it -p 8888:8888 -v "$PWD/notebooks:/home" continuumio/anaconda3 /bin/bash
+
+exec : Jupter
+jupyter notebook --ip='*' --port=8888 --no-browser --allow-root &
+
+
+pega o tocken:
+::::token=c89b4e6c2ad487d8d08c7bbc449fe1aa22c19c9c12065289
+
+
+exec Dockerfile
+sudo docker build -t image-ds .
+
+Image - docker 
+sudo docker run -d -rm --name jupyterserver -p 8888:8888 -v "$PWD/notebooks:/home/notebooks" image-ds
