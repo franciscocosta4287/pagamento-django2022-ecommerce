@@ -1,0 +1,362 @@
+🔗 Site oficial Netlify: https://www.netlify.com/
+🔗 Site oficial Caprover: https://caprover.com/
+🔗 Site oficial Catalyst: https://catalyst.zoho.com/
+3 ALTERNATIVAS GRÁTIS e OPEN SOURCE para abandonar a HEROKU
+
+
+Registro Br
+FDCCO16
+SENHA:debora123
+
+===========================>><<===========================  
+Netlify
+3d
+
+debora
+davi
+lorena
+
+
+=====================2 Ferramentas de SQL online | CreateSe
+http://sqlfiddle.com/
+sqliteonline.com
+
+livesql.oracle.com
+fcsitesw@gmail.com
+Li4287fc_#
+===========
+
+
+CONSOLIDADOR DE INFORMAÇÕES
+
+cadastro de pessoas >>>>Apenas para  pegar o CADASTRO<<<<
+https://servicos.receita.fazenda.gov.br/servicos/cpf/alterar/default.asp
+
+>>>>> dev@CMBI01:~/construct$  
+>>>>> (.dev) dev@CMBI01:~/caio/nutri$
+
+\\wsl$\Ubuntu-20.04\home\dev\portifolio\.dev
+
+<<<<====================================================>>>>
+
+                            AULAS
+GIT
+https://www.youtube.com/watch?v=_AUP5ta2uf8&ab_channel=ProfessorEdsonMaia
+
+<<<<====================================================>>>>
+
+
+
+Agregadores
+https://divulgacandcontas.tse.jus.br/divulga/#/
+https://tucujuris.tjap.jus.br/tucujuris/pages/consultar-processo/
+* Doadores Eleitoral:: https://divulgacandcontas.tse.jus.br/divulga/#/consulta/doadores-fornecedores/2
+
+https://www.informecadastral.com.br/cnpj/matera-systems-informatica-sa-07003180000104
+
+https://cnpj.biz/07003180000104
+
+https://www.jusbrasil.com.br/busca?q=07003180000104
+
+https://cadastroempresa.com.br/cnpj/07.003.180/0001-04-cm-software-licenciamento-de-sistemas-ltda
+
+https://www.valor.srv.br/empresa.php?cnpj=07003180000104
+
+empresa - Busca por Nome/Razao
+https://empresasdobrasil.com/pesquisar
+https://empresasdobrasil.com/empresa/desafio-negocios-rurais-10646710000147
+
+
+*Anvisa
+https://consultas.anvisa.gov.br/api/empresa/00000000000191
+Razao
+fantasia 
+
+*APIs
+https://infosimples.com/consultas/
+
+*Convites
+https://www.elo7.com.br/lista/convites?nav=sb
+ 
+Esse site as pessoas criam suas próprias lojinhas de produtos artesanais, acho que podem começar por aqui pesquisando preços e ideias.
+ 
+Outro lugar muito legal para vender hoje em dia é o Instagram, usando as 
+#convite 
+#convitedecasamento 
+#convite15anos e assim por diante... faça alguns modelos tire foto e crie pagina no Facebook, Instagram, Mercado Livre e no Elo7.
+ 
+Deus abençoe.
+
+===============================
+API CEP 
+Localização.: Permite a busca de pessoas por CEP, esse método deverá ser utilizado quando não souber o número do documento para consulta.
+
+import requests
+
+#Função DEF
+def main():
+    print('##################')
+    print('###Consulta CEP###')
+    print()
+    cep_input = input('Digite o cep para consulta.: ')
+
+    if len(cep_input) != 8:
+        print('Quantidade de digitos Invalidos!')
+        exit()
+
+    req = requests.get(f'https://viacep.com.br/ws/{cep_input}/json/')
+
+    address_data = req.json()
+    if 'erro' not in address_data:
+        print('<><><><> CEP ENCONTRADO! <><><><>')
+        print('CEP: {}' .format(address_data['cep']))
+        print('LOGRADOURO: {}' .format(address_data['logradouro']))
+        print('COMPLEMENTO: {}' .format(address_data['complemento']))
+        print('BAIRRO: {}' .format(address_data['bairro']))
+        print('LOCALIDADE: {}' .format(address_data['localidade']))
+        print('UF: {}' .format(address_data['uf']))
+        print('IBGE: {}' .format(address_data['ibge']))
+        print('GIA: {}' .format(address_data['gia']))
+        print('DDD: {}' .format(address_data['ddd']))
+        print('SIAFI: {}' .format(address_data['siafi']))
+
+        #  print(req.json())
+    else:
+        print(f'CEP Invalido! :(  {cep_input}\nDigite novamente!!')
+
+    print()
+    print('-------------------------------------------')
+    option = int(input('<><><>Deseja realizar uma nova Consulta ?<><><>\n<><>1. Sim<><>\n<><>2. Sair<><>\n'))
+    if option == 1:
+      main()
+    else:
+      print('<><>Saindooooo.....!<><>')
+
+if __name__ ==  '__main__':
+    main()
+  
+  
+==================
+API CNPJ 
+Busca Pessoa Jurídica.: Permite a busca de pessoas por CEP
+
+==================
+API Mercado Livre
+# class Test:
+    
+#     def __init__(self, nome, idade) -> None:
+#         self.nome = nome
+#         self.idade = idade
+
+# a = Test('francisco', 123)
+# print(a.nome, a.idade)abacaxi
+
+#from os import EX_CANTCREAT
+
+
+from bs4 import BeautifulSoup
+
+import requests
+
+def main():
+
+    url = 'https://lista.mercadolivre.com.br/'
+
+    produto_imput = input('Qual o produto que você deseja? ')
+
+    #print(url + produto)
+    r = requests.get(url + produto_imput)
+    #print(r.text)
+    site = BeautifulSoup(r.text, 'lxml')
+
+    #site = BeautifulSoup(r.text, 'html-parser')
+    #print(site.prettify())
+
+    #PARSEANDO HTML
+    produtos = site.findAll('div', attrs={'class': 'andes-card andes-card--flat andes-card--default ui-search-result ui-search-result--core andes-card--padding-default'})
+    #print(produto.prettify())
+
+
+    for produto in produtos:
+
+        #PARSEANDO DENTRO DO PRODUTO
+        titulo = produto.find('h2', attrs={'class':'ui-search-item__title'})
+        print('Titulo do Produto: ', titulo.text)
+        link_p = produto.find('a', attrs={'class': 'ui-search-link'})
+        print('Link do Produto: ', link_p['href'])
+        p_real = produto.find('span', attrs={'class':'price-tag-fraction'})
+        #print('Preço do Produto Real: ', p_real.text)
+        p_real_centavos = produto.find('span', attrs={'class':'price-tag-cents'})
+
+        if (p_real_centavos): # Se encontrou centavos imprime
+            print('Preço do Produto: R$', p_real.text + ',' + p_real_centavos.text)
+        else:
+            print('Preço do Produto: R$', p_real.text)
+
+        print('\n\n')
+    option = int(input('Deseja realizar uma nova consulta ?\n1. Sim\n2. Sair\n'))
+    if option == 1:
+        main()
+    else:
+        print('Saindo...')
+
+if __name__ == '__main__':
+    main()
+
+
+================================\\INTERPOL//================================
+from bs4 import BeautifulSoup
+import requests
+
+# name = "GOLAWSKI"
+# forename = "LUKASZ"
+name = "samatova"
+forename = "olimovna"
+
+url = f'''https://ws-public.interpol.int/notices/v1/red?&name={name}&forename={forename}'''
+result = requests.get(url)
+
+print(result.text)
+
+================================\\CFC - Conselho Federal de Contabilidade//================================
+from bs4 import BeautifulSoup
+import requests
+# cpf = '22687317829' OK
+cpf = '57802173000'
+GET = f'''https://sistemas.cfc.org.br/validacao/profissional/cpf/{cpf}/codigo/78A90F'''
+
+result = requests.get(GET)
+
+print(result.text)
+
+================================\\FGV-Dados pessoa fisica Politicos//================================
+from bs4 import BeautifulSoup
+import requests
+# 103.783.833-53
+cpf = '22732996807'
+url = f'''https://api.cepespdata.io/api/query/result?table=candidatos&draw=3&start=0&length=25&format=json&c[]=NOME_CANDIDATO&c[]=CPF_CANDIDATO&c[]=DATA_NASCIMENTO&c[]=DESCRICAO_ESTADO_CIVIL&c[]=SIGLA_UF_NASCIMENTO&c[]=NOME_MUNICIPIO_NASCIMENTO&c[]=EMAIL_CANDIDATO&cargo=1&anos[]=2018&mun_filter=&uf_filter=&filters[CPF_CANDIDATO]={cpf}&lang=pt&mode=lambda'''
+
+result = requests.get(url)
+
+print(result.text)
+
+================================\\IBAMA//================================
+from bs4 import BeautifulSoup
+import requests
+# 103.783.833-53
+aaaaa = {
+	"formDinAcao": "atualizar_grid_Areas_Embargadas_ajax",
+	"cod_uf": "",
+	"cod_municipio": "",
+	"cod_tipo_bioma": "",
+	"nome_razao": "",
+	"nom_propriedade": "",
+	"cpf_cnpj": "05938444000196",
+	"sit_desmatamento": "T",
+	"message": "Carregando...",
+	"modulo": "ConsultaPublicaAreasEmbargadas.php",
+	"dataType": "text",
+	"formdin_instance_id": "",
+	"ajax": "1"
+}
+
+r = requests.post('https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php', data = {'cnpj': aaaaa},  verify = False)
+# r = requests.post('https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php', data={'key': 'value'})
+xxxx = r.text  #conteudo da requisicao
+print(xxxx)
+================================\\CNPJ - Empresas//================================
+from bs4 import BeautifulSoup
+import requests as r
+# 103.783.833-53
+
+
+cnpj = '11167539000156'
+url = f'''https://thecollector.linkana.com/companies?cnpj=eq.{cnpj}&limit=1&select=cnpj,razao_social,mf,nome_fantasia,municipio,uf,cod_situacao_cadastral'''
+
+result = r.get(url)
+
+print(result.content)
+
+
+================================\\WHOIS//================================
+from bs4 import BeautifulSoup
+import requests
+
+x = 'mixvistoria.com.br'
+scheme = f'''https://registro.br/tecnologia/ferramentas/whois/?search={x}'''
+# https://registro.br/tecnologia/ferramentas/whois/?search=mixvistoria.com.br
+
+result = requests.get(scheme)
+print(result.text)
+
+===>>>>>>>>>>>>>>>>>>>###########
+from bs4 import BeautifulSoup
+import requests
+
+x = 'atlassian.net'
+scheme = f'''https://www.whois.com/whois/{x}'''
+# https://registro.br/tecnologia/ferramentas/whois/?search=mixvistoria.com.br
+
+result = requests.get(scheme)
+print(result.text)
+================================\\FGV//================================
+# from bs4 import BeautifulSoup
+# import requests as r
+# # 103.783.833-53
+# aaaa = {
+# 		"GET": { epespdata.io/api/query/result?table=candidatos&draw=3&start=0
+# 			"scheme": "https",
+# 			"host": "api.cepespdata.io",
+# 			"filename": "/api/query/result",
+# 			"query": {
+# 				"table": "candidatos",
+# 				"draw": "3",
+# 				"start": "0",
+# 				"length": "25",
+# 				"format": "json",
+# 				"c[]": [
+	# = f'''https://api.cepespdata.io/api/query/result?table=candidatos&draw=3&start=0&length=25&format=json&c[]=NOME_CA
+# 					"NOME_CANDIDATO",
+# 			
+
+
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+# 103.783.833-53
+cpf = '22732996807'
+url = f'''https://api.cepespdata.io/api/query/result?table=candidatos&draw=3&start=0&length=25&format=json&c[]=NOME_CANDIDATO&c[]=CPF_CANDIDATO&c[]=DATA_NASCIMENTO&c[]=DESCRICAO_ESTADO_CIVIL&c[]=SIGLA_UF_NASCIMENTO&c[]=NOME_MUNICIPIO_NASCIMENTO&c[]=EMAIL_CANDIDATO&cargo=1&anos[]=2018&mun_filter=&uf_filter=&filters[CPF_CANDIDATO]={cpf}&lang=pt&mode=lambda'''
+
+result = requests.get(url)
+
+print(result.text)
+
+
+# ==========
+# # aaaa = {
+# # 		"GET": { epespdata.io/api/query/result?table=candidatos&draw=3&start=0
+# # 			"scheme": "https",
+# # 			"host": "api.cepespdata.io",
+# # 			"filename": "/api/query/result",
+# # 			"query": {
+# # 				"table": "candidatos",
+# # 				"draw": "3",
+# # 				"start": "0",
+# # 				"length": "25",
+
+
+# 	"GET": {
+		
+# 			"limit": "1",
+# 			"select": "cnpj,razao_social,mf,nome_fantasia,municipio,uf,cod_situacao_cadastral"
+# 		},
+# 		"remote": {
+# 			"Endereço": "34.117.71.100:443"
+# 		}
+# 	}
+
+
+================================\\WHOIS//================================
